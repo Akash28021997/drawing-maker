@@ -63,19 +63,16 @@ const FormComponent = () => {
             />
           </Box>
           <Box flex="1" textAlign="center">
-            <Heading size="lg">RKD Drawing Maker</Heading>
+            <Heading size="lg">Drawings Maker</Heading>
           </Box>
         </Flex>
       </Box>
 
       {/* Main Form */}
       <Box p={5} maxW="600px" mx="auto" flex="1">
-        <Heading mb={5} textAlign="center">
-          Enter Your Details
-        </Heading>
         <form onSubmit={handleSubmit}>
           <FormControl mb={3} isRequired>
-            <FormLabel>Name:</FormLabel>
+            <FormLabel>Applicant Name:</FormLabel>
             <Input
               type="text"
               name="name"
@@ -85,7 +82,7 @@ const FormComponent = () => {
             />
           </FormControl>
           <FormControl mb={3} isRequired>
-            <FormLabel>Application Number:</FormLabel>
+            <FormLabel>Patent Application Number:</FormLabel>
             <Input
               type="text"
               name="number"
@@ -95,7 +92,7 @@ const FormComponent = () => {
             />
           </FormControl>
           <FormControl mb={3} isRequired>
-            <FormLabel>Upload Photos:</FormLabel>
+            <FormLabel>Upload Drawings:</FormLabel>
             <Input
               type="file"
               multiple
