@@ -414,7 +414,7 @@ const PreviewComponent = () => {
       const blob = new Blob([pdfBytes], { type: "application/pdf" });
       const link = document.createElement("a");
       link.href = URL.createObjectURL(blob);
-      link.download = "document.pdf";
+      link.download = `${number}-${name}.pdf`;
       link.click();
     } catch (error) {
       console.error("Error handling PDF generation:", error);
