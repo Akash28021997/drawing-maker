@@ -246,6 +246,7 @@
 
 import React from "react";
 import { useLocation } from "react-router-dom";
+import htmlDocx from "html-docx-js/dist/html-docx";
 import * as fontkit from "fontkit";
 import { PDFDocument, rgb } from "pdf-lib";
 import {
@@ -256,11 +257,13 @@ import {
   Heading,
   Image,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 
 const PreviewComponent = () => {
   const { state } = useLocation(); // Access the passed data from the form component
   const { name, number, photos } = state;
+  const toast = useToast();
 
   const handleDownloadPDF = async () => {
     const pdfDoc = await PDFDocument.create();
@@ -416,10 +419,69 @@ const PreviewComponent = () => {
       link.href = URL.createObjectURL(blob);
       link.download = `${number}-${name}.pdf`;
       link.click();
+      toast({
+        title: "PDF Downloaded.",
+        description: `The PDF file ${number}-${name}.pdf has been successfully downloaded.`,
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
     } catch (error) {
       console.error("Error handling PDF generation:", error);
+      toast({
+        title: "Download Failed.",
+        description: "There was an error generating the PDF. Please try again.",
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
     }
   };
+
+  // const handleDownloadDOC = () => {
+  //   // Create HTML content for the .doc file
+  //   const htmlContent = `
+  //     <html>
+  //     <head>
+  //       <style>
+  //         body { font-family: 'Times New Roman', serif; }
+  //         .header { text-align: left; margin-bottom: 20px; }
+  //         .footer { text-align: right; margin-top: 20px; }
+  //         .content { margin-bottom: 20px; }
+  //         .image { width: 100%; height: auto; }
+  //       </style>
+  //     </head>
+  //     <body>
+  //       ${photos.map((photo, index) => `
+  //         <div class="header">
+  //           <p>NAME: ${name}</p>
+  //           <p>NO: ${number}</p>
+  //           <p>NO. OF SHEETS: ${photos.length}</p>
+  //           <p>SHEET NO: ${index + 1}</p>
+  //         </div>
+  //         <div class="content">
+  //           <img src="${URL.createObjectURL(photo)}" class="image" />
+  //         </div>
+  //         <div class="footer">
+  //           <p>MOHAN RAJKUMAR DEWAN, IN/PA-25</p>
+  //           <p>OF R. K. DEWAN & CO.</p>
+  //           <p>APPLICANT'S PATENT ATTORNEY</p>
+  //         </div>
+  //         <hr />
+  //       `).join('')}
+  //     </body>
+  //     </html>
+  //   `;
+
+  //   // Convert HTML to .doc file
+  //   const docx = htmlDocx.asBlob(htmlContent);
+
+  //   // Trigger file download
+  //   const link = document.createElement('a');
+  //   link.href = URL.createObjectURL(docx);
+  //   link.download = `${number}-${name}.doc`;
+  //   link.click();
+  // };
 
   return (
     <Box
@@ -500,6 +562,9 @@ const PreviewComponent = () => {
       <Button colorScheme="teal" onClick={handleDownloadPDF}>
         Download as PDF
       </Button>
+      {/* <Button colorScheme="teal" onClick={handleDownloadDOC}>
+        Download as Docx
+      </Button> */}
     </Box>
   );
 };
