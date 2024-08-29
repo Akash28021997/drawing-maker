@@ -165,19 +165,21 @@ const PreviewComponent = () => {
 
   return (
     <Box
-      p={4}
+      p={3}
       display="flex"
       flexDirection="column"
       justifyContent="center"
       alignItems="center"
       maxWidth="100%"
     >
-      <Heading mb={4}>Preview</Heading>
+      <Heading color={"blue.500"} mt={-2} mb={1}>
+        Preview
+      </Heading>
       <Box
         borderWidth={1}
         borderRadius="md"
         p={9}
-        m={7}
+        m={4}
         w="800px" // Set width to A4 size in pixels
         h="1123px" // Set height to A4 size in pixels
         mx="auto" // Center horizontally

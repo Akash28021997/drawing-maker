@@ -1,16 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  Box,
-  Button,
-  FormControl,
-  FormLabel,
-  Input,
-  Heading,
-  Text,
-  Flex,
-  Image,
-} from "@chakra-ui/react";
+import { Box, Button, FormControl, FormLabel, Input } from "@chakra-ui/react";
 
 const FormComponent = () => {
   const [formData, setFormData] = useState({
@@ -41,33 +31,6 @@ const FormComponent = () => {
 
   return (
     <Box minH="100vh" display="flex" flexDirection="column">
-      {/* Header */}
-      <Box bg="blue.500" color="white" py={4} position="relative" width="100%">
-        <Flex
-          align="center"
-          px={5}
-          maxW="1200px"
-          mx="auto"
-          justify="space-between"
-        >
-          <Box
-            bg="white"
-            borderRadius="md"
-            p={2}
-            mr={4} // Margin to space out from the text
-          >
-            <Image
-              src="logo.png" // Replace with the path to your logo
-              alt="Logo"
-              boxSize="50px" // Adjust size as needed
-            />
-          </Box>
-          <Box flex="1" textAlign="center">
-            <Heading size="lg">Drawings Maker</Heading>
-          </Box>
-        </Flex>
-      </Box>
-
       {/* Main Form */}
       <Box p={5} maxW="600px" mx="auto" flex="1">
         <form onSubmit={handleSubmit}>
@@ -105,19 +68,6 @@ const FormComponent = () => {
             Preview
           </Button>
         </form>
-      </Box>
-
-      {/* Footer */}
-      <Box
-        bg="blue.500"
-        color="white"
-        py={4}
-        textAlign="center"
-        position="absolute"
-        bottom={0}
-        width="100%"
-      >
-        <Text>All Rights Reserved @ 2024</Text>
       </Box>
     </Box>
   );
