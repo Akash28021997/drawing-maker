@@ -13,7 +13,7 @@ const FooterComponent = () => {
       width="100%"
       zIndex="10" // Ensure the footer stays above content
     >
-      <Text>All Rights Reserved @ 2024</Text>
+      <Text>All Rights Reserved © 2024</Text>
     </Box>
   );
 };
