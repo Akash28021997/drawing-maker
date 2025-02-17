@@ -261,7 +261,7 @@ const PreviewComponent = () => {
               children: [
                 new ImageRun({
                   data: imagesData[index],
-                  transformation: { width: 500, height: 580 },
+                  transformation: { width: 520, height: 580 },
                 }),
               ],
             }),
