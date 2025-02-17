@@ -231,7 +231,7 @@ const PreviewComponent = () => {
                   size: 24,
                 }),
                 new TextRun({
-                  text: "\t\t\t\t\t NO. OF SHEETS: " + photos.length,
+                  text: "\t\t\t\t\t\t   NO. OF SHEETS: " + photos.length,
                   bold: true,
                   size: 24,
                 }),
